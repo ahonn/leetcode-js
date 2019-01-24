@@ -1,0 +1,14 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2016,
+  },
+  "env": {
+    "node": true,
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "no-unused-vars": 0,
+    "consistent-return": 0
+  }
+}
+

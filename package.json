@@ -1,0 +1,26 @@
+{
+  "name": "leetcode-js",
+  "version": "1.0.0",
+  "description": "Javascript solutions for Leetcode problems",
+  "scripts": {
+    "show": "leetcode show -x -g -l javascript -o algorithms"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahonn/leetcode-js.git"
+  },
+  "keywords": [
+    "leetcode"
+  ],
+  "author": "ahonn <ahonn95@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahonn/leetcode-js/issues"
+  },
+  "homepage": "https://github.com/ahonn/leetcode-js#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0"
+  }
+}
