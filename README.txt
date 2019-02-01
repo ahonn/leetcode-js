@@ -9,3 +9,4 @@ Javascript solutions for Leetcode problems
 ✔ [ 13 ] Roman to Integer                                             Easy   (51.18 %)
 ✔ [ 14 ] Longest Common Prefix                                        Easy   (32.79 %)
 ✔ [ 20 ] Valid Parentheses                                            Easy   (35.62 %)
+✔ [ 21 ] Merge Two Sorted Lists                                       Easy   (45.28 %)
