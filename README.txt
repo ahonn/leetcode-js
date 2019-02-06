@@ -17,3 +17,5 @@ https://leetcode.com/ahonn
 ✔ [ 27 ] Remove Element                                               Easy   (43.25 %)
 ✔ [ 28 ] Implement strStr()                                           Easy   (31.01 %)
 ✔ [ 35 ] Search Insert Position                                       Easy   (40.35 %)
+✔ [ 38 ] Count and Say                                                Easy   (39.21 %)
+✔ [ 53 ] Maximum Subarray                                             Easy   (42.52 %)
