@@ -50,10 +50,6 @@ const climbStairs = function climbStairs(n) {
     1: 1,
   };
 
-  if (n < 2) {
-    return climbs[n];
-  }
-
   for (let i = 2; i <= n; i += 1) {
     climbs[i] = climbs[i - 1] + climbs[i - 2];
   }
