@@ -32,3 +32,6 @@ https://leetcode.com/ahonn
 ✔ [ 107] Binary Tree Level Order Traversal II                         Easy   (45.56 %)
 ✔ [ 108] Convert Sorted Array to Binary Search Tree                   Easy   (49.14 %)
 ✔ [ 110] Balanced Binary Tree                                         Easy   (40.33 %)
+✔ [ 111] Minimum Depth of Binary Tree                                 Easy   (34.82 %)
+✔ [ 112] Path Sum                                                     Easy   (36.97 %)
+✔ [ 118] Pascal's Triangle                                            Easy   (44.46 %)
