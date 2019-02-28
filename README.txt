@@ -35,3 +35,4 @@ https://leetcode.com/ahonn
 ✔ [ 111] Minimum Depth of Binary Tree                                 Easy   (34.82 %)
 ✔ [ 112] Path Sum                                                     Easy   (36.97 %)
 ✔ [ 118] Pascal's Triangle                                            Easy   (44.46 %)
+✔ [ 121] Best Time to Buy and Sell Stock                              Easy   (46.18 %)
