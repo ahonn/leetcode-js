@@ -36,3 +36,5 @@ https://leetcode.com/ahonn
 ✔ [ 112] Path Sum                                                     Easy   (36.97 %)
 ✔ [ 118] Pascal's Triangle                                            Easy   (44.46 %)
 ✔ [ 121] Best Time to Buy and Sell Stock                              Easy   (46.18 %)
+✔ [ 122] Best Time to Buy and Sell Stock II                           Easy   (50.87 %)
+✔ [ 125] Valid Palindrome                                             Easy   (30.19 %)
