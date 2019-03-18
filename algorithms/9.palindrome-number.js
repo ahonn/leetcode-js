@@ -51,13 +51,13 @@ const isPalindrome = function isPalindrome(x) {
     return false;
   }
 
-  const posNumStr = Math.abs(x).toString();
-  const len = posNumStr.length;
-  const halfLen = Math.floor(len / 2);
+  const numStr = x.toString();
+  const len = numStr.length;
+  const halfLen = len >> 1;
 
   for (let i = 0; i < halfLen; i += 1) {
-    const compare1 = posNumStr.charAt(i);
-    const compare2 = posNumStr.charAt(len - 1 - i);
+    const compare1 = numStr.charAt(i);
+    const compare2 = numStr.charAt(len - 1 - i);
     if (compare1 !== compare2) {
       return false;
     }
