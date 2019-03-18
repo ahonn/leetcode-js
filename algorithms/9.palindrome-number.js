@@ -47,20 +47,21 @@
  * @return {boolean}
  */
 const isPalindrome = function isPalindrome(x) {
-  if (x < 0) {
+  if (x < 0 || (x !== 0 && x % 10 === 0)) {
     return false;
   }
 
-  const numStr = x.toString();
-  const len = numStr.length;
-  const halfLen = len >> 1;
+  if (x > 10) {
+    let origin = x;
+    let reverse = 0;
 
-  for (let i = 0; i < halfLen; i += 1) {
-    const compare1 = numStr.charAt(i);
-    const compare2 = numStr.charAt(len - 1 - i);
-    if (compare1 !== compare2) {
-      return false;
+    while (origin) {
+      reverse = (reverse * 10) + (origin % 10);
+      origin = Math.floor(origin / 10);
     }
+
+    return x === reverse;
   }
+
   return true;
 };
