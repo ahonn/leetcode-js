@@ -46,8 +46,8 @@ const isPalindrome = function isPalindrome(head) {
     current = current.next;
   }
 
-  const halfStackLen = stack.length >> 1;
   current = head;
+  const halfStackLen = stack.length >> 1;
   for (let i = 0; i < halfStackLen; i += 1) {
     if (current.val !== stack.pop()) {
       return false;
