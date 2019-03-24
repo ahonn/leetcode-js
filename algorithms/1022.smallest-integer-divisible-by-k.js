@@ -37,13 +37,9 @@ const smallestRepunitDivByK = function smallestRepunitDivByK(k) {
   let length = 1;
   while (remainder) {
     const increase = ((remainder * 10) + 1);
-    const div = increase / k;
-    length += 1;
 
-    if (div === 0) {
-      return length;
-    }
     remainder = increase % k;
+    length += 1;
   }
   return length;
 };
