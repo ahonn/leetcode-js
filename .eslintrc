@@ -6,6 +6,9 @@
     "node": true,
   },
   "extends": "airbnb-base",
+  "globals": {
+    "ListNode": true,
+  },
   "rules": {
     "no-unused-vars": 0,
     "no-param-reassign": 0,

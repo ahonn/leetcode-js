@@ -33,7 +33,7 @@
  * }
  */
 const addTwoNumbers = function addTwoNumbers(l1, l2) {
-  let list = new ListNode();
+  const list = new ListNode();
   let current = list;
   let val = 0;
 
