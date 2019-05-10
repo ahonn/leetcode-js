@@ -73,5 +73,3 @@ const licenseKeyFormatting = function licenseKeyFormatting(S, K) {
   }
   return license.toUpperCase();
 };
-
-console.log(licenseKeyFormatting('--a-a-a-a-', 2));
