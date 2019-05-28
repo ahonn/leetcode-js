@@ -33,18 +33,19 @@
  * @return {string[]}
  */
 const letterCombinations = function letterCombinations(digits) {
-  if (digits === '') {
+  const len = digits.length;
+  if (len === 0) {
     return [];
   }
 
   const digit2Letters = ['', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
 
-  const combinations = (prefixs, digitsStr) => {
-    if (digitsStr === '') {
+  const combinations = (prefixs, index) => {
+    if (index === len) {
       return prefixs;
     }
 
-    const digit = +digitsStr[0];
+    const digit = +digits[index];
     const letters = digit2Letters[digit - 1];
     const result = [];
     for (let i = 0; i < prefixs.length; i += 1) {
@@ -53,8 +54,8 @@ const letterCombinations = function letterCombinations(digits) {
         result.push(prefix + letters[j]);
       }
     }
-    return combinations(result, digitsStr.substring(1));
+    return combinations(result, index + 1);
   };
 
-  return combinations([''], digits);
+  return combinations([''], 0);
 };
