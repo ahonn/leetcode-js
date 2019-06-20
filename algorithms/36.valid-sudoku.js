@@ -74,29 +74,21 @@
  * @return {boolean}
  */
 const isValidSudoku = function isValidSudoku(board) {
-  const row = {};
-  const col = {};
-  const box = {};
+  const row = [];
+  const col = [];
+  const box = [];
 
   for (let i = 0; i < board.length; i += 1) {
     row[i] = new Uint8Array(10);
     for (let j = 0; j < board[i].length; j += 1) {
-      if (col[j] === undefined) {
-        col[j] = new Uint8Array(10);
-      }
+      col[j] = col[j] || new Uint8Array(10);
       const cell = board[i][j];
 
       if (cell !== '.') {
         const x = Math.floor(i / 3);
         const y = Math.floor(j / 3);
 
-        if (box[x] === undefined) {
-          box[x] = [
-            new Uint8Array(10),
-            new Uint8Array(10),
-            new Uint8Array(10),
-          ];
-        }
+        box[x] = box[x] || [new Uint8Array(10), new Uint8Array(10), new Uint8Array(10)];
 
         if (row[i][cell] || col[j][cell] || box[x][y][cell]) {
           return false;
