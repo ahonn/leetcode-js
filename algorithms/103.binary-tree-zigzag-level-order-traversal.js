@@ -50,7 +50,7 @@ const zigzagLevelOrder = function zigzagLevelOrder(root) {
   }
 
   const stack = [root];
-  let zigzag = false;
+  let reverse = false;
 
   while (stack.length) {
     const thisLevel = [];
@@ -62,7 +62,7 @@ const zigzagLevelOrder = function zigzagLevelOrder(root) {
       }
 
       const { left, right, val } = node;
-      if (zigzag) {
+      if (reverse) {
         thisLevel.unshift(val);
       } else {
         thisLevel.push(val);
@@ -70,7 +70,7 @@ const zigzagLevelOrder = function zigzagLevelOrder(root) {
       stack.push(left, right);
     }
 
-    zigzag = !zigzag;
+    reverse = !reverse;
 
     if (thisLevel.length) {
       levels.push(thisLevel);
