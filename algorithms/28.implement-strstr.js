@@ -37,56 +37,49 @@
  * string. This is consistent to C's strstr() and Java's indexOf().
  *
  */
-function prefixTable(patten) {
-  const len = patten.length;
-  const prefix = new Array(len).fill(0);
-
+const getNext = (pattern) => {
+  const len = pattern.length;
+  const next = new Uint16Array(len);
   let j = 0;
-  let i = 1;
-  while (i < len) {
-    if (patten[i] === patten[j]) {
-      j += 1;
-      prefix[i] = j;
-      i += 1;
-    } else if (j > 0) {
-      j = prefix[j - 1];
-    } else {
-      prefix[i] = 0;
-      i += 1;
+  for (let i = 1; i < len; i += 1) {
+    while (j > 0 && pattern[i] !== pattern[j]) {
+      j = next[j - 1];
     }
+    if (pattern[i] === pattern[j]) {
+      j += 1;
+    }
+    next[i] = j;
   }
-
-  return prefix;
-}
+  return next;
+};
 
 /**
- * https://www.youtube.com/watch?v=dgPabAsTFa8
- *
  * @param {string} haystack
  * @param {string} needle
  * @return {number}
  */
 const strStr = function strStr(haystack, needle) {
-  if (needle === '') {
+  const haystackLen = haystack.length;
+  const needleLen = needle.length;
+
+  if (needleLen === 0) {
     return 0;
   }
+  if (haystackLen === 0) {
+    return -1;
+  }
 
-  const len = haystack.length;
-  const prefix = prefixTable(needle);
-
-  let i = 0;
+  const next = getNext(needle);
   let j = 0;
-  while (i < len) {
+  for (let i = 0; i < haystackLen; i += 1) {
+    while (j > 0 && haystack[i] !== needle[j]) {
+      j = next[j - 1];
+    }
     if (haystack[i] === needle[j]) {
-      if (j === needle.length - 1) {
-        return i - j;
-      }
-      i += 1;
       j += 1;
-    } else if (j > 0) {
-      j = prefix[j - 1];
-    } else {
-      i += 1;
+    }
+    if (j === needleLen) {
+      return i - needleLen + 1;
     }
   }
 
