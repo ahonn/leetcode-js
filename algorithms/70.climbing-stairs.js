@@ -45,14 +45,16 @@
  * @return {number}
  */
 const climbStairs = function climbStairs(n) {
-  const climbs = {
-    0: 1,
-    1: 1,
-  };
-
-  for (let i = 2; i <= n; i += 1) {
-    climbs[i] = climbs[i - 1] + climbs[i - 2];
+  if (n < 2) {
+    return n;
   }
 
-  return climbs[n];
+  const climbing = (x, y, t) => {
+    if (t === n) {
+      return y;
+    }
+    return climbing(y, x + y, t + 1);
+  };
+
+  return climbing(1, 1, 1);
 };
