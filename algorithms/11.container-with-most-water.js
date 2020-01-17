@@ -35,27 +35,21 @@
  */
 const maxArea = function maxArea(height) {
   const len = height.length;
-  if (len === 2) {
-    return Math.min(...height);
-  }
-
-  let max = 0;
   let left = 0;
   let right = len - 1;
-  while (left < right && right < len) {
+  let max = 0;
+
+  while (left < right) {
     const y = Math.min(height[left], height[right]);
     const x = right - left;
-    const val = x * y;
+    max = Math.max(max, y * x);
 
-    if (val > max) {
-      max = val;
-    }
-
-    if (height[left] > height[right]) {
-      right -= 1;
-    } else {
+    if (height[left] < height[right]) {
       left += 1;
+    } else {
+      right -= 1;
     }
   }
+
   return max;
 };
