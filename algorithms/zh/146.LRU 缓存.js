@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 // 请你设计并实现一个满足  LRU(最近最少使用) 缓存 约束的数据结构。
 // 实现 LRUCache 类：
 // LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
@@ -31,23 +32,78 @@
 // 0 <= value <= 105
 // 最多调用 2 * 105 次 get 和 put
 
-class LRUCache {
-  constructor(capacity) {
-    this.capacity = capacity;
-  }
-
-  get() {
-
-  }
-
-  put() {
-
+class Node {
+  constructor(key, val) {
+    this.key = key;
+    this.val = val;
+    this.prev = null;
+    this.next = null;
   }
 }
 
-/**
- * Your LRUCache object will be instantiated and called as such:
- * var obj = new LRUCache(capacity)
- * var param_1 = obj.get(key)
- * obj.put(key,value)
- */
+class LRUCache {
+  constructor(capacity) {
+    this.cache = new Map();
+    this.head = new Node();
+    this.tail = new Node();
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+    this.capacity = capacity;
+    this.size = 0;
+  }
+
+  get(key) {
+    if (this.cache.has(key)) {
+      const node = this.cache.get(key);
+      this.moveToHead(node);
+      return node.val;
+    }
+    return -1;
+  }
+
+  put(key, val) {
+    if (this.cache.has(key)) {
+      const node = this.cache.get(key);
+      node.val = val;
+      this.moveToHead(node);
+      return;
+    }
+    const node = new Node(key, val);
+    this.cache.set(key, node);
+    this.addHeadNode(node);
+
+    this.size += 1;
+    if (this.size > this.capacity) {
+      const removeNode = this.removeTailNode();
+      this.cache.delete(removeNode.key);
+      this.size -= 1;
+    }
+  }
+
+  moveToHead(node) {
+    this.removeNode(node);
+    this.addHeadNode(node);
+  }
+
+  removeNode(node) {
+    if (node.next) {
+      node.next.prev = node.prev;
+    }
+    if (node.prev) {
+      node.prev.next = node.next;
+    }
+  }
+
+  addHeadNode(node) {
+    node.prev = this.head;
+    node.next = this.head.next;
+    this.head.next.prev = node;
+    this.head.next = node;
+  }
+
+  removeTailNode() {
+    const node = this.tail.prev;
+    this.removeNode(node);
+    return node;
+  }
+}
